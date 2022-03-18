@@ -1,5 +1,3 @@
-import one from './modules/one'
-import two from './modules/two'
+import {call} from './modules/call'
 
-one()
-two()
+call()
