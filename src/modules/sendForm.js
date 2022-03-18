@@ -1,0 +1,69 @@
+export const sendForm = ({ formId }) => {
+  const form = document.getElementById(formId)
+  const statusBlock = document.createElement('div')
+  const errorText = 'Ошибка...'
+  const loadText = 'Загрузка'
+  const successText = 'Спасибо. С вами свяжется наш менеджер'
+
+  const name = form.querySelector('.formDiscount-name')
+  const phone = form.querySelector('.formDiscount-phone')
+  
+  const sendData = (data) => {
+    return fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json())
+  }
+
+  const submitForm = () => {
+    const formElements = form.querySelectorAll('input')
+    const formData = new FormData(form)
+    const formBody = {}
+
+    statusBlock.textContent = loadText
+
+    statusBlock.style = 'color: #5d5d5d'
+  
+    form.append(statusBlock)
+
+    formData.forEach((val, key) => {
+      formBody[key] = val
+    })
+
+    sendData(formBody).then(data => {
+      statusBlock.textContent = successText
+
+      formElements.forEach(input => {
+        input.value = ''
+      })
+
+      setTimeout(() => {
+        statusBlock.textContent = ''
+      }, 3000)
+    })
+    .catch(error => {
+      statusBlock.textContent = errorText
+    })
+  }
+
+  try {
+    if (!form) {
+      throw new Error('Верните форму')
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+
+      if (!/[^А-яA-z\s]/g.test(name.value) && !/[^\d\+]/g.test(phone.value) && (phone.value.length <= 16) && phone.value.trim() != '' && name.value.trim() != '') {
+        submitForm()
+      } else {
+        alert('Данные не валидны')
+      } 
+    })
+  } catch(error) {
+    console.log(error.message);
+  }
+}

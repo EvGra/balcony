@@ -1,8 +1,8 @@
 export const timer = (deadline) => {
-  const timerDays = document.querySelector('.days')
-  const timerHours = document.querySelector('.hours')
-  const timerMinutes = document.querySelector('.minutes')
-  const timerSeconds = document.querySelector('.seconds')
+  const timerDays = document.querySelectorAll('.days')
+  const timerHours = document.querySelectorAll('.hours')
+  const timerMinutes = document.querySelectorAll('.minutes')
+  const timerSeconds = document.querySelectorAll('.seconds')
 
   const getTimeRemaining = () => {
     let dateStop = new Date(deadline).getTime()
@@ -27,10 +27,21 @@ export const timer = (deadline) => {
       }
     })
 
-    timerDays.textContent = arr[0]
-    timerHours.textContent = arr[1]
-    timerMinutes.textContent = arr[2]
-    timerSeconds.textContent = arr[3]
+    timerDays.forEach((item) => {
+      item.textContent = arr[0]
+    })
+
+    timerHours.forEach((item) => {
+      item.textContent = arr[1]
+    })
+
+    timerMinutes.forEach((item) => {
+      item.textContent = arr[2]
+    })
+
+    timerSeconds.forEach((item) => {
+      item.textContent = arr[3]
+    })
 
     if (getTime.timeRemaining > 0) {
       setTimeout(updateClock, 1000)
