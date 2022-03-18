@@ -1,10 +1,33 @@
 export const call = () => {
   const body = document.querySelector('body')
-  const call = document.querySelector('.header-modal')
+  const callHeader = document.querySelector('.header-modal')
   const overlay = document.querySelector('.overlay')
+  const callServices = document.querySelector('.services-modal')
 
-   const callClick = () => {
-    call.classList.toggle('header-modal')
+   const closeClick = (str) => {
+
+    overlay.style.display = 'none'
+
+    if (str == 'header') {
+      callHeader.classList.add('header-modal')
+    }
+
+    if (str == 'service') {
+      callServices.classList.add('services-modal')
+    }
+  }
+
+  const openClick = (str) => {
+
+    overlay.style.display = 'flex'
+
+    if (str == 'header') {
+      callHeader.classList.remove('header-modal')
+    }
+
+    if (str == 'service') {
+      callServices.classList.remove('services-modal')
+    }
   }
 
   body.addEventListener('click', (e) => {
@@ -12,14 +35,23 @@ export const call = () => {
     if (e.target.closest('#header .button')) {
       e.preventDefault()
 
-      callClick()
-      overlay.style.display = 'flex'
+      openClick('header')
     } 
     if (e.target.closest('.header-modal__close') || e.target.closest('.overlay')) {
     e.preventDefault()
 
-    callClick()
-    overlay.style.display = 'none'
+    closeClick('header')
+    }
+
+    if (e.target.closest('.service-button')) {
+      e.preventDefault()
+
+      openClick('service')
+    } 
+    if (e.target.closest('.services-modal__close') || e.target.closest('.overlay')) {
+    e.preventDefault()
+
+    closeClick('service')
     }
   })
 }
