@@ -1658,8 +1658,13 @@ input.error {
   font-size: 24px;
 }
 
+.smooth-scroll-none {
+  display: none;
+}
+
 .smooth-scroll {
   position: fixed;
+  cursor: pointer;
   right: 25px;
   bottom: 25px;
   transform: rotate(90deg);
