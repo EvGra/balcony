@@ -1,9 +1,11 @@
-export const sendForm = ({ formId }) => {
+export const sendForm = ({ formId, total }) => {
   const form = document.getElementById(formId)
   const statusBlock = document.createElement('div')
   const errorText = 'Ошибка...'
   const loadText = 'Загрузка'
   const successText = 'Спасибо. С вами свяжется наш менеджер'
+
+  const totalInput = document.getElementById('calc-total')
 
   const name = form.querySelector('.formDiscount-name')
   const phone = form.querySelector('.formDiscount-phone')
@@ -32,6 +34,8 @@ export const sendForm = ({ formId }) => {
     formData.forEach((val, key) => {
       formBody[key] = val
     })
+
+    formBody['calc-total'] = totalInput.value
 
     sendData(formBody).then(data => {
       statusBlock.textContent = successText
