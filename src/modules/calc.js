@@ -5,6 +5,7 @@ export const calc = () => {
   const calcSquere = document.querySelector('#calc-input')
   const total = document.getElementById('calc-total')
 
+  if (calcBlock && calcType && calcMaterial && calcSquere && total) {
     const countCalc = () => {
     const calcSquereValue = +calcSquere.value
 
@@ -29,4 +30,5 @@ export const calc = () => {
       countCalc()
     }
   })
+  }
 }

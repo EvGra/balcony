@@ -5,7 +5,7 @@ export const sendForm = ({ formId, total }) => {
   const loadText = 'Загрузка'
   const successText = 'Спасибо. С вами свяжется наш менеджер'
 
-  const totalInput = document.getElementById('calc-total')
+  const totalInput = document.querySelector('#calc-total')
 
   const name = form.querySelector('.formDiscount-name')
   const phone = form.querySelector('.formDiscount-phone')
@@ -35,7 +35,9 @@ export const sendForm = ({ formId, total }) => {
       formBody[key] = val
     })
 
-    formBody['calc-total'] = totalInput.value
+    if (totalInput) {
+      formBody['calc-total'] = totalInput.value
+    }
 
     sendData(formBody).then(data => {
       statusBlock.textContent = successText
