@@ -1606,7 +1606,7 @@ input.error {
 }
 
 .benefits__item {
-  width: 100%;
+  height: 231px;
   max-width: 185px;
 }
 
@@ -1684,6 +1684,19 @@ input.error {
   .col-md-12:nth-child(4) {
     display: none;
   }
+  .benefits__item:nth-child(2),
+  .benefits__item:nth-child(3),
+  .benefits__item:nth-child(4),
+  .benefits__item:nth-child(5),
+  .benefits__item:nth-child(6) {
+    display: none;
+  }
+  .benefits-inner {
+    display: flex;
+  }
+  .benefits__item {
+    align-items: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1717,6 +1730,14 @@ input.error {
     margin: 0;
     border-radius: 10px;
   }
+  .benefits__item:nth-child(4),
+  .benefits__item:nth-child(5),
+  .benefits__item:nth-child(6) {
+    display: none;
+  }
+  .benefits-inner {
+    justify-content: space-between;
+  }
 }
 @media (min-width: 1200px) {
   .col-md-12:nth-child(3),
@@ -1725,5 +1746,13 @@ input.error {
   }
   .row-service-block {
     display: flex;
+  }
+  .benefits__item:nth-child(4),
+  .benefits__item:nth-child(5),
+  .benefits__item:nth-child(6) {
+    display: none;
+  }
+  .benefits-inner {
+    justify-content: space-between;
   }
 }
