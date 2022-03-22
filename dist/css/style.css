@@ -1715,6 +1715,17 @@ input.error {
     border-radius: 10px;
   }
 }
+@media (min-width: 998px) {
+  .benefits__item:nth-child(4),
+  .benefits__item:nth-child(5),
+  .benefits__item:nth-child(6) {
+    display: none;
+  }
+  .benefits-inner {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}
 @media (max-width: 1200px) {
   .col-md-12:nth-child(3),
   .col-md-12:nth-child(4) {
@@ -1735,9 +1746,6 @@ input.error {
   .benefits__item:nth-child(6) {
     display: none;
   }
-  .benefits-inner {
-    justify-content: space-between;
-  }
 }
 @media (min-width: 1200px) {
   .col-md-12:nth-child(3),
@@ -1753,6 +1761,7 @@ input.error {
     display: none;
   }
   .benefits-inner {
-    justify-content: space-between;
+    padding-left: 250px;
+    padding-right: 250px;
   }
 }

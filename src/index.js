@@ -21,3 +21,15 @@ sendForm({
   formId: 'formDiscount2',
   total: 'calc-total'
 })
+sendForm({
+  formId: 'formCall',
+  total: 'calc-total'
+})
+sendForm({
+  formId: 'formCall2',
+  total: 'calc-total'
+})
+sendForm({
+  formId: 'formApplication',
+  total: 'calc-total'
+})

@@ -7,8 +7,8 @@ export const sendForm = ({ formId, total }) => {
 
   const totalInput = document.querySelector('#calc-total')
 
-  const name = form.querySelector('.formDiscount-name')
-  const phone = form.querySelector('.formDiscount-phone')
+  const name = form.querySelector('.formName')
+  const phone = form.querySelector('.formPhone')
   
   const sendData = (data) => {
     return fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -63,7 +63,7 @@ export const sendForm = ({ formId, total }) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault()
 
-      if (!/[^А-яA-z\s]/g.test(name.value) && !/[^\d\+]/g.test(phone.value) && (phone.value.length <= 16) && phone.value.trim() != '' && name.value.trim() != '') {
+      if (!/[^А-яA-z\s]/g.test(name.value) && !/[^\d\+]/g.test(phone.value) && (phone.value.length <= 16) && phone.value.trim() != '' && name.value.trim() != '' && name.value[0] != ' ') {
         submitForm()
       } else {
         alert('Данные не валидны')
